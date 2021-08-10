@@ -9,4 +9,5 @@ def checkpass(request):
 
     val_user= request.POST['username']
     val_pass= request.POST['password']
+    
     return render(request, "home.html")
