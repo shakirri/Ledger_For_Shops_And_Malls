@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+
+
+<body>
+    <div id="login">
+    
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="purchased" method="post">
+                            {% csrf_token %}
+                            <h3 class="text-center text-info">Register purchases</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Product ID:</label><br>
+                                <input type="text" name="produci_id" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password" class="text-info">Product Name:</label><br>
+                                <input type="text" name="name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Amount:</label><br>
+                                <input type="text" name="amount" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Purchase Price:</label><br>
+                                <input type="text" name="purchase_price" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Sales price:</label><br>
+                                <input type="text" name="sales_price" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="Confirm" class="btn btn-info btn-md" value="submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
