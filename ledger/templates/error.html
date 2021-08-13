@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<body>
+    <div>
+        <h3 class="text-center text-red pt-1">Wrong Username or Password</h3>
+        <div id="login-box" class="col-md-1">
+            <form action="login" >
+                <button type="Submit" class="btn btn-info btn-md">Login Again</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+
+{% endblock %}
