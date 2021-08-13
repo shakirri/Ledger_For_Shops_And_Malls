@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<h3 class="text-center text-info">Select New/Existing Product</h3>
+<body>
+    <div></div>
+    <div class="container">
+        
+
+        <div class="row">
+        <div  class="col-md-2">
+            
+        </div>
+        <div class="col">
+            <form action="oldprod">
+                <br> <button type="Submit" class="btn btn-info btn-md">Existing Product</button><br>
+            </form>
+        </div>
+        
+        <div class="col">
+            <form action="newprod">
+                <br> <button type="Submit" class="btn btn-info btn-md">New Product</button><br>
+            </form>
+        </div>
+        
+        
+        
+    </div>  
+
+</body>
+{% endblock %}

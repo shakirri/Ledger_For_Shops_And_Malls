@@ -16,7 +16,7 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="purchased" method="post">
+                        <form id="login-form" class="form" action="oldpurchased" method="post">
                             {% csrf_token %}
                             <h3 class="text-center text-info">Register purchases</h3>
                             <div class="form-group">
@@ -25,21 +25,10 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="name" class="text-info">Product Name:</label><br>
-                                <input type="text" name="name" class="form-control">
-                            </div>
-                            <div class="form-group">
                                 <label for="amount" class="text-info">Amount:</label><br>
                                 <input type="text" name="amount" class="form-control">
                             </div>
-                            <div class="form-group">
-                                <label for="purchase_price" class="text-info">Purchase Price:</label><br>
-                                <input type="text" name="purchase_price" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="sale_price" class="text-info">Sales price:</label><br>
-                                <input type="text" name="sale_price" class="form-control">
-                            </div>
+                            
                             <div class="form-group">
                                 <input type="submit" name="Confirm" class="btn btn-info btn-md" value="submit">
                             </div>
