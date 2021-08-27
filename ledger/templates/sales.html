@@ -1,4 +1,4 @@
-Saales
+**Do not refresh this page
 {% extends 'base.html' %}
 {% block content %}
 
@@ -19,7 +19,7 @@ Saales
                 <div id="login-box" class="col-md-12">
                     <form id="login-form" class="form" action="addsales" method="post">
                         {% csrf_token %}
-                        <h3 class="text-center text-info">Register purchases</h3>
+                        <h3 class="text-center text-info">Add Items</h3>
                         <div class="form-group">
                             <label for="product_id" class="text-info">Product ID:</label><br>
                             <input type="text" name="product_id" class="form-control">
@@ -50,22 +50,31 @@ Saales
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        {% for prod in list %}
                             <tr>
                                 <th scope="row">{{prod.id}}</th>
                                 <td>{{prod.name}}</td>
                                 <td>{{prod.amount}}</td>
-                                <td>${{prod.purchase_price}}</td>
                                 <td>${{prod.sale_price}}</td>
+                                
+                                <td>${{prod.per_total}}</td>
+                                
+                                
                             </tr>
+                        {%  endfor %}
+                        <th scope="row">Total Price</th>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        {% for x in price %}
+                            <td>${{x.total_price}}</td>
+                        {%  endfor %}
                         
-                      <tr>
-                
                     </tbody>
                 </table>
                 <div class="col">
                     <form action="home">
-                        <br> <button type="Submit" class="btn btn-info btn-md">Confirm Sales</button><br>
+                        <br> <button type="Submit" class="btn-info ">Confirm Sales</button><br>
                     </form>
                 </div>
 
