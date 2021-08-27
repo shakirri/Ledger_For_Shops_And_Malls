@@ -72,3 +72,13 @@ def addsales(request):
        # saleslist=saleslist+pr
     #saleslist=[p]
     return render(request, "sales.html", context)
+
+def sold(request):
+    for sl in SalesTemp.objects.all():
+        x=Products.objects.get(id=sl.id)
+        x.amount=x.amount-sl.amount
+        x.save()
+    return render(request, "home.html")
+
+def balance(request):
+    return render(request, "ledger.html")
