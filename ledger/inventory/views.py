@@ -35,3 +35,9 @@ def check_inv(request):
     prod2=Products.objects.get(id=202108)
     prod=Products.objects.all()
     return render(request, "productlist.html", {'prods':prod})
+
+def home(request):
+    return render(request, "home.html")
+
+def sell(request):
+    return render(request, "sales.html")
