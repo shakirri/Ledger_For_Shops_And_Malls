@@ -13,34 +13,31 @@
         </tr>
     </thead>
     <tbody>
-        
+        {% for prod in list %}
             <tr>
                 <th scope="row">Cash</th>
-                <td>${{prod.amount}}</td>
+                <td>${{prod.cash}}</td>
             </tr>
             <tr>
                 <th scope="row">Profit</th>
-                <td>${{prod.amount}}</td>
+                <td>${{prod.profit}}</td>
             </tr>
             <tr>
                 <th scope="row">Inventory value</th>
-                <td>${{prod.amount}}</td>
+                <td>${{prod.inventory_value}}</td>
             </tr>
             <tr>
                 <th scope="col">Total Purchased</th>
-                <td>${{prod.amount}}</td>
+                <td>${{prod.total_purchases}}</td>
             </tr>
             <tr>
                 <th scope="col">Total Sales</th>
-                <td>${{prod.amount}}</td>
-            </tr>
-            <tr>
-                <th scope="col">Total</th>
-                <td>${{prod.amount}}</td>
+                <td>${{prod.total_sales}}</td>
+
             </tr>
 
-        
-      <tr>
+        {% endfor %}
+      
 
     </tbody>
 </table>

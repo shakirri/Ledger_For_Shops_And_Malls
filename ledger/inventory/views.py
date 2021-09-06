@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Products
+from .models import Products, Assets
 from .tempo import Pricing, SalesTemp
 
 # Create your views here.
@@ -14,6 +14,7 @@ def oldprod(request):
     return render(request, "oldproduct.html")
     
 def purchased(request):
+    a=Assets.objects.get(id=1)
     pid= request.POST['product_id']
     pname= request.POST['name']
     pamount= request.POST['amount']
@@ -21,14 +22,23 @@ def purchased(request):
     psales_price= request.POST['sale_price']
     p=Products(id=pid, name=pname, amount=pamount, purchase_price=ppurchase_price, sale_price=psales_price)
     p.save()
+    cash=p.amount*p.purchase_price
+    a.cash=a.cash-cash
+    a.total_purchases=cash+a.total_purchases
+    a.save()
     return render(request, "home.html")
 
 def oldpurchased(request):
+    a=Assets.objects.get(id=1)
     pid= request.POST['product_id']
     pamount= int(request.POST['amount'])
     x=Products.objects.get(id=pid)
     x.amount=x.amount+pamount
     x.save()
+    cash=pamount*x.purchase_price
+    a.cash=a.cash-cash
+    a.total_purchases=cash+a.total_purchases
+    a.save()
     return render(request, "home.html") 
 
 def check_inv(request):
@@ -56,7 +66,7 @@ def addsales(request):
     #tp=p.total_price
     s.per_total=x.sale_price*pamount
     p.total_price=p.total_price+x.sale_price*pamount
-    #p.profit=0
+    p.profit=p.profit+pamount*(x.sale_price-x.purchase_price)
     s.save()
     p.save()
     priceT= Pricing.objects.all()
@@ -74,11 +84,33 @@ def addsales(request):
     return render(request, "sales.html", context)
 
 def sold(request):
+    a=Assets.objects.get(id=1)
+    p=Pricing.objects.get(id=1)
     for sl in SalesTemp.objects.all():
         x=Products.objects.get(id=sl.id)
         x.amount=x.amount-sl.amount
         x.save()
+    a.cash=a.cash+p.total_price
+    a.profit=a.profit+p.profit
+    a.total_sales=a.total_sales+p.total_price
+    a.save()
+    Pricing.objects.all().delete
     return render(request, "home.html")
 
 def balance(request):
-    return render(request, "ledger.html")
+    a=Assets.objects.get(id=1)
+    a.inventory_value=inventory_calc()
+    asset=[a]
+    context = {
+        'list':asset,
+ 
+    }
+    return render(request, "ledger.html", context)
+
+def inventory_calc():
+    x=0
+    for p in Products.objects.all():
+        x=x+(p.purchase_price*p.amount)
+
+
+    return x
