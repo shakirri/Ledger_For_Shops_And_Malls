@@ -1,3 +1,4 @@
+import inventory
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Products, Assets
@@ -5,6 +6,10 @@ from .tempo import Pricing, SalesTemp
 
 # Create your views here.
 def addprod(request):
+    if not (Assets.objects.filter(id=1)):
+        a=Assets.objects.create(id=1, cash=100000, profit=0, total_purchases=0, total_sales=0, inventory_value=0)
+        a.save()
+
     return render(request, "productexist.html")
 
 def newprod(request):
@@ -17,9 +22,9 @@ def purchased(request):
     a=Assets.objects.get(id=1)
     pid= request.POST['product_id']
     pname= request.POST['name']
-    pamount= request.POST['amount']
-    ppurchase_price= request.POST['purchase_price']
-    psales_price= request.POST['sale_price']
+    pamount= int(request.POST['amount'])
+    ppurchase_price= int(request.POST['purchase_price'])
+    psales_price= int(request.POST['sale_price'])
     p=Products(id=pid, name=pname, amount=pamount, purchase_price=ppurchase_price, sale_price=psales_price)
     p.save()
     cash=p.amount*p.purchase_price
