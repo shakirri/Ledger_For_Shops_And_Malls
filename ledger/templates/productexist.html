@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+{% load static %}
+<link href="{% static 'style.css' %}" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <h3 class="text-center text-info">Select New/Existing Product</h3>
 <h3 class="text-center text-white">Which one?</h3>
 <h3 class="text-center text-white">Choose</h3>
-<body>
+<body class="bg-dark">
     <div></div>
     <div class="container">
         

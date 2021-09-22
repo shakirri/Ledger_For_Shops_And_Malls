@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+{% load static %}
+<link href="{% static 'style.css' %}" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-<body>
+<body class="bg-dark">
     <div>
         <h3 class="text-center text-red pt-1">Wrong Username or Password</h3>
         <h3 class="text-center text-white pt-1">Try Again</h3>

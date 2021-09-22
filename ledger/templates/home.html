@@ -1,40 +1,43 @@
-{% extends 'base.html' %}
+
 {% block content %}
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+{% load static %}
+<link href="{% static 'style.css' %}" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+
 <h3 class="text-center text-info">HomePage</h3>
 <h3 class="text-center text-white">Successfully Loged in</h3>
-<h5 class="text-center text-info">Select Catagory</h5>
-<body>
-    <div></div>
+
+<body class="bg-dark">
+    
     <div class="container">
         
 
-        <div class="row">
-        <div class="col">
-            <form action="addprod">
-                <br> <button type="Submit" class="btn btn-info btn-md">Add Product</button><br>
-            </form>
-        </div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col">
+                <form action="addprod">
+                    <br> <button type="Submit" class="btn btn-info btn-md">Add Product</button><br>
+                </form>
+            </div>
         
-        <div class="col">
-            <form action="sell">
-                <br> <button type="Submit" class="btn btn-info btn-md">Sell Product</button><br>
-            </form>
-        </div>
+            <div class="col">
+                <form action="sell">
+                    <br> <button type="Submit" class="btn btn-info btn-md">Sell Product</button><br>
+                </form>
+            </div>
         
-        <div class="col">
-            <form action="check_inv">
-                <br> <button type="Submit" class="btn btn-info btn-md">Check Inventory</button><br>
-            </form>
-        </div>
-        <div class="col">
-            <form action="balance">
-                <br> <button type="Submit" class="btn btn-info btn-md">See Ledger</button><br>
-            </form>
-        </div>
+            <div class="col">
+                <form action="check_inv">
+                    <br> <button type="Submit" class="btn btn-info btn-md">Check Inventory</button><br>
+                </form>
+            </div>
+            <div class="col">
+                <form action="balance">
+                    <br> <button type="Submit" class="btn btn-info btn-md">See Ledger</button><br>
+                </form>
+            </div>
         </div>
         
         
